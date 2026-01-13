@@ -10,6 +10,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
         <link rel="mask-icon" href="/favicon.svg" color="#D3D3D3">
+        <link rel="stylesheet" href="style.css">
     </head> 
     <body style="background-color: rgb(40, 40, 40)">
     <p style="font-family: Arial, Helvetica, sans-serif;color:aliceblue">hi! there will be <b>more</b> things here at <i>some</i> point</p>
@@ -47,7 +48,7 @@ async function loadComments() {
   const comments = await res.json();
   const container = document.getElementById("comments");
   container.innerHTML = comments.map(c =>
-    `<p>${c.content} <small>${new Date(c.created_at).toLocaleString()}</small></p>`
+  `<p class="comment">${c.content}<small class="timestamp">${new Date(c.created_at).toLocaleString()}</small></p>`
   ).join("");
 }
 
