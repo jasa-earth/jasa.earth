@@ -32,12 +32,11 @@
 
    </video>
 <br>
+<br>
 <div id="comments-container">
-  <h3>Comments</h3>
   <div id="comments"></div>
-
-  <textarea id="comment-input" placeholder="Write a comment"></textarea><br>
-  <button id="submit-comment">Submit</button>
+  <textarea id="comment-input" placeholder="nickname" maxlength="16" translate="yes"></textarea>
+  <button id="submit-comment">post</button>
 </div>
 
 <script>
@@ -48,13 +47,20 @@ async function loadComments() {
   const comments = await res.json();
   const container = document.getElementById("comments");
   container.innerHTML = comments.map(c =>
-  `<p class="comment">${c.content}<small class="timestamp">${new Date(c.created_at).toLocaleString()}</small></p>`
+  `<div class="comment">
+    ${c.content}
+    <span class="after-text"> was here</span>
+    <small class="timestamp">${new Date(c.created_at).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    })}</small></div>`
   ).join("");
 }
 
 async function submitComment() {
   const content = document.getElementById("comment-input").value;
-  if (!content) return alert("Please write a comment");
+  if (!content) return alert("u didnt put anything in the box goof");
 
   await fetch(API_URL, {
     method: "POST",
@@ -71,9 +77,6 @@ document.getElementById("submit-comment").addEventListener("click", submitCommen
 // Load comments on page load
 loadComments();
 </script>
-
-
-
 </body>
    </html>
    
