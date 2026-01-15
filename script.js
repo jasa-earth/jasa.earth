@@ -11,7 +11,8 @@ async function loadComments() {
     <small class="timestamp">${new Date(c.created_at).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
-      day: "numeric"
+      day: "numeric",
+      timeZone: "America/New_York",
     })}</small></div>`
   ).join("");
 }
