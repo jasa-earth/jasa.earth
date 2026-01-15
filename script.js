@@ -8,12 +8,16 @@ async function loadComments() {
   `<div class="comment">
     ${c.content}
     <span class="after-text"> was here</span>
-    <small class="timestamp">${new Date(c.created_at).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "America/New_York",
-    })}</small></div>`
+    <small class="timestamp">${
+      new Date(c.created_at.replace(" ", "T") + "Z")
+      .toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "America/New_York",
+       })
+     }</small>
+    </div>`
   ).join("");
 }
 
