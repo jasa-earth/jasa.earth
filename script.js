@@ -12,10 +12,12 @@ async function loadComments() {
       new Date(c.created_at.replace(" ", "T") + "Z")
       .toLocaleDateString("en-US", {
         year: "numeric",
-        month: "short",
+        month: "long",
         day: "numeric",
         timeZone: "America/New_York",
        })
+        .replace(",", "")
+        .toLowerCase()
      }</small>
     </div>`
   ).join("");

@@ -2,6 +2,7 @@
   display: flex;
   align-items:stretch;
   gap: 6px;
+  padding-bottom: 14px;
 }
 
 #comments-container {
@@ -11,8 +12,8 @@
 }
 
 .comment {
-  margin-top: 10px;
-  padding: 1px;
+  margin-top: 6px;
+  padding-bottom: 14px;
   color:aliceblue;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -20,11 +21,13 @@
 }
 
 .timestamp {
-  padding: 10px;
+  padding-left: 8px;
   display:inline-block;
   color: rgb(127, 131, 136);
+  font-family: monospace, 'Courier New', Courier;
   font-size: 10px;
   margin-top: 4px;
+  font-weight: normal;
 }
 
 #comment-input {
@@ -34,8 +37,9 @@
   box-sizing: border-box;
   border-radius: 2px;
   font-size: 14px;
-  font-family: monospace;
-  border-style: none;
+  font-family: monospace, 'Courier New', Courier;
+  border-style: solid;
+  border-color: #ffffff;
 }
 
 #submit-comment {
@@ -47,15 +51,24 @@
   line-height: 28px;
   white-space: nowrap;
   cursor: pointer;
-  font-family: monospace;
+  font-family: monospace, 'Courier New', Courier;
   background-color: rgb(85, 85, 85);
   color: white;
   border-style:ridge;
+  border-width: 2px;
 }
 
 #submit-comment:hover {
   color: black;
   background-color: #ffffff;
+}
+
+#comment-input:focus {
+  background-color:rgb(48, 48, 48);
+  color: aliceblue;
+  border-style: solid;
+  border-color: rgb(210, 210, 210);
+  border-width: 1px;
 }
 
 #comment-input:focus {
